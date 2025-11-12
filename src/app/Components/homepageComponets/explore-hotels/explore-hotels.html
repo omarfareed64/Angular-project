@@ -1,0 +1,24 @@
+<section id="hotels-showing" class="explore-hotels">
+  <div class="section-header">
+    <h1>Explore Hotels & Stays</h1>
+  </div>
+
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" (click)="scrollLeft()">&#10094;</button>
+
+    <div class="hotel-slider" #slider>
+      @for (hotel of hotels; track hotel.id) {
+        <div class="hotel-card">
+          <img [src]="hotel.image" [alt]="hotel.name" />
+          <div class="hotel-info">
+            <h3>{{ hotel.name }}</h3>
+            <p>{{ hotel.location }}</p>
+            <span>{{ hotel.price }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <button class="slider-btn next" (click)="scrollRight()">&#10095;</button>
+  </div>
+</section>

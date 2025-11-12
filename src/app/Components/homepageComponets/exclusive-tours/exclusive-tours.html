@@ -1,0 +1,31 @@
+<section id="exclusive-tours" class="exclusive-tours">
+  <div class="section-header">
+    <h1>Exclusive Tours</h1>
+  </div>
+
+  <div class="slider-wrapper">
+    <button class="slider-btn prev" (click)="scrollLeft()">&#10094;</button>
+
+    <div class="tour-slider" #slider>
+      @for (tour of tours; track tour.id) {
+        <div class="tour-card">
+          <img [src]="tour.image" [alt]="tour.name" />
+          <div class="tour-info">
+            <div class="tour-details">
+              <h3>{{ tour.name }}</h3>
+              <p>{{ tour.location }}</p>
+            </div>
+            <div class="tour-meta">
+              <span class="price">{{ tour.price }}</span>
+              <div class="rating">
+                ★★★★☆
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <button class="slider-btn next" (click)="scrollRight()">&#10095;</button>
+  </div>
+</section>

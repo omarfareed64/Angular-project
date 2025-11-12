@@ -1,0 +1,186 @@
+/* ====== Header Styles ====== */
+.site-header {
+  position: absolute; /* makes it overlay above the image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* keeps it above the background */
+  background: rgba(10, 31, 68, 0.6); /* translucent dark overlay */
+  backdrop-filter: blur(6px); /* optional: nice glassy effect */
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  padding: 1rem 0;
+  border-bottom: 2px solid rgba(0, 196, 204, 0.3);
+}
+
+/* Background image section (put below header in HTML) */
+.hero {
+  position: relative;
+  height: 90vh; /* adjust to fit your design */
+  background-image: url('/../swimming-pool-beach-luxury-hotel-type-entertainment-complex-amara-dolce-vita-luxury-hotel-resort-tekirova-kemer-turkey.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  padding: 0 1rem;
+}
+
+/* Optional: dark overlay for better text visibility */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Text content container */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+/* Headline and paragraph styles */
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #00c4cc;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Optional button */
+.hero-content a {
+  background: #00c4cc;
+  color: #0a1f44;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.hero-content a:hover {
+  background: #ffffff;
+  color: #0a1f44;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Container */
+.site-header .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Brand / Logo */
+.site-header .brand a {
+  color: rgb(0, 197, 204);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.site-header .brand a:hover {
+  color: #ffffff;
+}
+
+/* Navigation */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-nav a {
+  color: #00c4cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  color: #d1d1d1;
+  border-bottom: 2px solid #00c4cc;
+}
+
+/* Auth Links */
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.auth .login {
+  color: #00c4cc;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #00c4cc;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.auth .login:hover {
+  background: #00c4cc;
+  color: #0a1f44;
+}
+
+.auth .signup {
+  background: #00c4cc;
+  color: #0a1f44;
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.auth .signup:hover {
+  background: #ffffff;
+  color: #0a1f44;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .site-header .container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .auth {
+    justify-content: center;
+  }
+}
