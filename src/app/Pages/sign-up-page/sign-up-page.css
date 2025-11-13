@@ -1,0 +1,121 @@
+/* ====== signup / Signup Page ====== */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a1f44, #122b5c);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Center form container */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.signup-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeZoom 0.8s ease-out;
+}
+
+/* Title */
+.signup-card h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #00c4cc;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Input styles */
+form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #cdeef0;
+}
+
+form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(0, 196, 204, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: #00c4cc;
+  box-shadow: 0 0 8px rgba(0, 196, 204, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Error message */
+small {
+  color: #ff4c4c;
+  font-size: 0.85rem;
+  margin-top: -10px;
+  display: block;
+  animation: fadeIn 0.4s ease-in;
+}
+
+/* Button */
+button[type='submit'] {
+  width: 100%;
+  padding: 12px;
+  background: #00c4cc;
+  color: #0a1f44;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button[type='submit']:hover {
+  background: #ffffff;
+  color: #0a1f44;
+  box-shadow: 0 0 12px rgba(0, 196, 204, 0.7);
+}
+
+button[disabled] {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  color: #a6b1c0;
+}
+
+/* Subtext */
+form p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c0d5e0;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 30px 20px;
+  }
+
+  .signup-card h1 {
+    font-size: 1.7rem;
+  }
+}

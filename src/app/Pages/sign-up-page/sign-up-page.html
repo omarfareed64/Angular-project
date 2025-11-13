@@ -1,1 +1,18 @@
-<p>sign-up-page works!</p>
+<div class="signup-container">
+  <div class="signup-card">
+    <h1>Create Your Account</h1>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <label for="user-name">Username </label>
+        <input id="user-name" type="text" formControlName="userName" required />
+        <label for="email">Email</label>
+        <input id="email" type="text" formControlName="email" />
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" value="" />
+        <label for="retypePassword">Retype Password</label>
+        <input id="retypePassword" type="password" formControlName="retypePassword" />
+
+        <p>Complete the form to enable button.</p>
+        <button type="submit" [disabled]="!signupForm.valid">Singup</button>
+      </form>
+  </div>
+</div>
