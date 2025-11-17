@@ -1,0 +1,23 @@
+<div class="map-wrap">
+  <div class="map-header">
+    <h1>Explore Our Destinations</h1>
+    <p>Discover amazing places around the world</p>
+  </div>
+  
+  <div class="destinations-controls">
+    <div class="destinations-list">
+      @for (destination of destinations; track destination.name) {
+        <button 
+          class="destination-btn"
+          [class.active]="selectedDestination === destination.name"
+          (click)="goToDestination(destination)">
+          {{ destination.name }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div class="map" #map></div>
+  </div>
+</div>
