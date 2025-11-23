@@ -1,11 +1,29 @@
 import { Component } from '@angular/core';
-import { ExploreHotels } from "../../Components/homepageComponets/explore-hotels/explore-hotels";
-import { TopCities } from '../../Components/homepageComponets/top-cities/top-cities';
-import { ExclusiveTours } from "../../Components/homepageComponets/exclusive-tours/exclusive-tours";
-import { MapComponent } from '../../Components/homepageComponets/map-component/map-component';
+import { TourPackages } from '../../Components/homepageComponents/tour-packages/tour-packages';
+import { ExclusiveTours } from '../../Components/stayspageComponets/exclusive-tours/exclusive-tours';
+import { PopularDestinations } from '../../Components/homepageComponents/popular-destinations/popular-destinations';
+import { ESim } from '../../Components/homepageComponents/e-sim/e-sim';
+import { ChooseUs } from '../../Components/homepageComponents/choose-us/choose-us';
+import { FlyWithUs } from '../../Components/homepageComponents/fly-with-us/fly-with-us';
+import { Services } from '../../Components/homepageComponents/services/services';
+import { Testimonials } from '../../Components/homepageComponents/testimonials/testimonials';
+import { CharterYachts } from '../../Components/homepageComponents/charter-yachts/charter-yachts';
+import { ListProperty } from '../../Components/homepageComponents/list-property/list-property';
+
 @Component({
   selector: 'app-homepage',
-  imports: [ExploreHotels, TopCities,MapComponent, ExclusiveTours],
+  imports: [
+    TourPackages,
+    ExclusiveTours,
+    PopularDestinations,
+    ESim,
+    ChooseUs,
+    FlyWithUs,
+    Services,
+    Testimonials,
+    CharterYachts,
+    ListProperty
+  ],
   templateUrl: './homepage.html',
   styleUrl: './homepage.css',
 })

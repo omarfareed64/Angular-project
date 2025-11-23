@@ -1,0 +1,35 @@
+/* ====== List Property Section ====== */
+.list-property-section {
+  background: linear-gradient(180deg, #0a1f44, #122b5c);
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.list-property-btn {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #00c4cc;
+  color: #0a1f44;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 196, 204, 0.3);
+}
+
+.list-property-btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 196, 204, 0.4);
+}
+

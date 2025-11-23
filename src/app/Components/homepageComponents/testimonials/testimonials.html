@@ -1,0 +1,42 @@
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Testimonial</span>
+      <h2 class="section-title">What Our Customers Are Saying About Us?</h2>
+    </div>
+    <div class="testimonials-grid">
+      @for (testimonial of testimonials; track $index) {
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div
+            #avatarImage
+            class="testimonial-avatar"
+            [attr.data-src]="testimonial.avatar"
+          ></div>
+          <div class="testimonial-info">
+            <h4>{{ testimonial.name }}</h4>
+            <p>{{ testimonial.location }}, {{ testimonial.year }}</p>
+          </div>
+        </div>
+
+        <div class="testimonial-quote">
+          <span class="quote-mark">"</span>
+          <p>{{ testimonial.quote }}</p>
+        </div>
+
+        <div class="testimonial-rating">
+          @for (star of [1,2,3,4,5]; track $index) {
+          <span class="star">⭐</span>
+          }
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="testimonials-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>

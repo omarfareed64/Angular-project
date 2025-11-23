@@ -1,0 +1,24 @@
+<section class="popular-destinations-section white-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Popular</span>
+      <h2 class="section-title">Popular Destinations</h2>
+    </div>
+    <div class="destinations-scroll">
+      @for (destination of popularDestinations; track $index) {
+      <div class="destination-card">
+        <div
+          #destinationImage
+          class="destination-image"
+          [attr.data-src]="destination.image"
+        ></div>
+        <div class="destination-info">
+          <h3>{{ destination.name }}</h3>
+          <p>{{ destination.description }}</p>
+          <button class="book-btn">Book Now</button>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

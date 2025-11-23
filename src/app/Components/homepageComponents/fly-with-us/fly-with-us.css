@@ -1,0 +1,94 @@
+/* ====== Fly Section ====== */
+.fly-section {
+  background: linear-gradient(180deg, #0a1f44, #122b5c);
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fly-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #00c4cc;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.fly-info > p {
+  color: #cdeef0;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.fly-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.fly-features li {
+  color: #cdeef0;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+.fly-image-wrapper {
+  position: relative;
+}
+
+.fly-image {
+  width: 100%;
+  height: 400px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  border: 3px solid rgba(0, 196, 204, 0.2);
+  background-color: #e8e8e8;
+  background-image: none;
+}
+
+.fly-image-wrapper:hover .fly-image {
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 196, 204, 0.4);
+  border-color: rgba(0, 196, 204, 0.4);
+}
+
+.book-btn {
+  background: #00c4cc;
+  color: #0a1f44;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 196, 204, 0.3);
+}
+
+.book-btn:hover {
+  background: #ffffff;
+  color: #0a1f44;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 196, 204, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .fly-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+

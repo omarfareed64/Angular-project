@@ -1,0 +1,121 @@
+/* ====== Charter Section ====== */
+.charter-section {
+  padding: 0;
+}
+
+.charter-background {
+  position: relative;
+  min-height: 500px;
+  background: linear-gradient(135deg, #0a1f44 0%, #122b5c 50%, #1a3a7a 100%);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: none;
+}
+
+.charter-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0,196,204,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+
+.charter-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.charter-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.charter-box {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 50px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.charter-box h2 {
+  color: #0a1f44;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.charter-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.charter-btn {
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.charter-btn.primary {
+  background: #00c4cc;
+  color: #0a1f44;
+}
+
+.charter-btn.primary:hover {
+  background: #0a1f44;
+  color: #00c4cc;
+  transform: translateY(-2px);
+}
+
+.charter-btn.secondary {
+  background: #0a1f44;
+  color: #00c4cc;
+  border: 2px solid #00c4cc;
+}
+
+.charter-btn.secondary:hover {
+  background: #00c4cc;
+  color: #0a1f44;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .charter-box {
+    padding: 30px 20px;
+  }
+
+  .charter-box h2 {
+    font-size: 2rem;
+  }
+
+  .charter-buttons {
+    flex-direction: column;
+  }
+
+  .charter-btn {
+    width: 100%;
+  }
+}
+
