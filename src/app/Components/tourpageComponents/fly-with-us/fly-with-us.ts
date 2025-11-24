@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-fly-with-us',
@@ -9,11 +10,28 @@ import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 export class FlyWithUs implements AfterViewInit {
   @ViewChild('flyImage') flyImage!: ElementRef;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngAfterViewInit() {
-    this.setupLazyLoading();
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupLazyLoading();
+    }
   }
 
   setupLazyLoading() {
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback: load images immediately if IntersectionObserver is not available
+      if (this.flyImage) {
+        const element = this.flyImage.nativeElement as HTMLElement;
+        const imageUrl = element.getAttribute('data-src');
+        if (imageUrl) {
+          element.style.backgroundImage = `url(${imageUrl})`;
+          element.removeAttribute('data-src');
+        }
+      }
+      return;
+    }
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

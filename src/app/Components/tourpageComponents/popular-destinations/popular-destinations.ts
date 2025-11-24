@@ -1,5 +1,5 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-popular-destinations',
@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 })
 export class PopularDestinations implements AfterViewInit {
   @ViewChildren('destinationImage') destinationImages!: QueryList<ElementRef>;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   popularDestinations = [
     {
@@ -39,10 +41,25 @@ export class PopularDestinations implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
-    this.setupLazyLoading();
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupLazyLoading();
+    }
   }
 
   setupLazyLoading() {
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback: load images immediately if IntersectionObserver is not available
+      this.destinationImages.forEach(img => {
+        const element = img.nativeElement as HTMLElement;
+        const imageUrl = element.getAttribute('data-src');
+        if (imageUrl) {
+          element.style.backgroundImage = `url(${imageUrl})`;
+          element.removeAttribute('data-src');
+        }
+      });
+      return;
+    }
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-choose-us',
@@ -9,11 +10,28 @@ import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@
 export class ChooseUs implements AfterViewInit {
   @ViewChildren('stackedImage') stackedImages!: QueryList<ElementRef>;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngAfterViewInit() {
-    this.setupLazyLoading();
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupLazyLoading();
+    }
   }
 
   setupLazyLoading() {
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback: load images immediately if IntersectionObserver is not available
+      this.stackedImages.forEach(img => {
+        const element = img.nativeElement as HTMLElement;
+        const imageUrl = element.getAttribute('data-src');
+        if (imageUrl) {
+          element.style.backgroundImage = `url(${imageUrl})`;
+          element.removeAttribute('data-src');
+        }
+      });
+      return;
+    }
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
