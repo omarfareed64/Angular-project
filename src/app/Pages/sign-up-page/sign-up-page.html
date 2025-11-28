@@ -2,17 +2,74 @@
   <div class="signup-card">
     <h1>Create Your Account</h1>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <label for="user-name">Username </label>
-        <input id="user-name" type="text" formControlName="userName" required />
-        <label for="email">Email</label>
-        <input id="email" type="text" formControlName="email" />
-        <label for="password">Password</label>
-        <input id="password" type="password" formControlName="password" value="" />
-        <label for="retypePassword">Retype Password</label>
-        <input id="retypePassword" type="password" formControlName="retypePassword" />
+      <div class="form-group">
+        <label for="user-name">Username</label>
+        <input 
+          id="user-name" 
+          type="text" 
+          formControlName="userName" 
+          placeholder="Enter your username"
+          required 
+          [class.ng-invalid]="signupForm.get('userName')?.invalid && signupForm.get('userName')?.touched"
+          [class.ng-valid]="signupForm.get('userName')?.valid && signupForm.get('userName')?.touched"
+        />
+        <small *ngIf="signupForm.get('userName')?.invalid && signupForm.get('userName')?.touched">
+          <span *ngIf="signupForm.get('userName')?.errors?.['required']">Username is required</span>
+          <span *ngIf="signupForm.get('userName')?.errors?.['minlength']">Username must be at least 3 characters</span>
+        </small>
+      </div>
 
-        <p>Complete the form to enable button.</p>
-        <button type="submit" [disabled]="!signupForm.valid">Singup</button>
-      </form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          id="email" 
+          type="email" 
+          formControlName="email" 
+          placeholder="Enter your email"
+          [class.ng-invalid]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
+          [class.ng-valid]="signupForm.get('email')?.valid && signupForm.get('email')?.touched"
+        />
+        <small *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+          <span *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</span>
+          <span *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email address</span>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          id="password" 
+          type="password" 
+          formControlName="password" 
+          placeholder="Enter your password"
+          [class.ng-invalid]="signupForm.get('password')?.invalid && signupForm.get('password')?.touched"
+          [class.ng-valid]="signupForm.get('password')?.valid && signupForm.get('password')?.touched"
+        />
+        <small *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          <span *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</span>
+          <span *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</span>
+          <span *ngIf="signupForm.get('password')?.errors?.['pattern']">Password must meet strength requirements</span>
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="retypePassword">Retype Password</label>
+        <input 
+          id="retypePassword" 
+          type="password" 
+          formControlName="retypePassword" 
+          placeholder="Confirm your password"
+          [class.ng-invalid]="(signupForm.get('retypePassword')?.invalid || signupForm.errors?.['passwordMismatch']) && signupForm.get('retypePassword')?.touched"
+          [class.ng-valid]="signupForm.get('retypePassword')?.valid && !signupForm.errors?.['passwordMismatch'] && signupForm.get('retypePassword')?.touched"
+        />
+        <small *ngIf="(signupForm.get('retypePassword')?.invalid || signupForm.errors?.['passwordMismatch']) && signupForm.get('retypePassword')?.touched">
+          <span *ngIf="signupForm.get('retypePassword')?.errors?.['required']">Please confirm your password</span>
+          <span *ngIf="signupForm.errors?.['passwordMismatch'] && !signupForm.get('retypePassword')?.errors?.['required']">Passwords do not match</span>
+        </small>
+      </div>
+
+      <p>Complete the form to enable button.</p>
+      <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+    </form>
   </div>
 </div>

@@ -1,10 +1,10 @@
-/* ====== signup / Signup Page ====== */
+/* ====== Sign Up Page Styles ====== */
 :host {
   display: block;
   min-height: 100vh;
-  background: linear-gradient(180deg, #0a1f44, #122b5c);
+  background: var(--gradient-dark);
   font-family: 'Poppins', sans-serif;
-  color: #fff;
+  color: var(--color-text-primary);
   overflow-x: hidden;
 }
 
@@ -14,108 +14,294 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: var(--spacing-xl);
 }
 
 .signup-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  padding: 40px;
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-4xl);
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  box-shadow: var(--shadow-xl);
   animation: fadeZoom 0.8s ease-out;
+  position: relative;
+}
+
+.signup-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 196, 204, 0.3), rgba(0, 94, 204, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 /* Title */
 .signup-card h1 {
   text-align: center;
-  font-size: 2rem;
-  color: #00c4cc;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.5px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-4xl) 0;
+  padding-bottom: var(--spacing-xl);
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  text-shadow: 0 2px 12px rgba(0, 196, 204, 0.25);
+  position: relative;
 }
 
-/* Input styles */
+.signup-card h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 196, 204, 0.4);
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Form group for better structure */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Label styles */
 form label {
   display: block;
   font-weight: 500;
-  margin-bottom: 6px;
-  color: #cdeef0;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xs);
+  transition: color var(--transition-base);
 }
 
+form label:has(+ input:focus) {
+  color: var(--color-primary);
+}
+
+/* Input styles */
 form input {
   width: 100%;
-  padding: 12px 14px;
-  margin-bottom: 18px;
+  padding: var(--spacing-md) var(--spacing-lg);
   border: 1px solid rgba(0, 196, 204, 0.3);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: var(--color-text-primary);
   font-size: 0.95rem;
+  font-family: inherit;
   outline: none;
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
+  box-sizing: border-box;
+}
+
+form input::placeholder {
+  color: var(--color-text-tertiary);
+  opacity: 0.7;
+}
+
+form input:hover:not(:disabled) {
+  border-color: rgba(0, 196, 204, 0.5);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 form input:focus {
-  border-color: #00c4cc;
-  box-shadow: 0 0 8px rgba(0, 196, 204, 0.6);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 196, 204, 0.2), 0 0 12px rgba(0, 196, 204, 0.4);
   background: rgba(255, 255, 255, 0.15);
+}
+
+form input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Input validation states */
+form input.ng-invalid.ng-touched {
+  border-color: rgba(255, 76, 76, 0.5);
+}
+
+form input.ng-invalid.ng-touched:focus {
+  border-color: #ff4c4c;
+  box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.2), 0 0 12px rgba(255, 76, 76, 0.3);
+}
+
+form input.ng-valid.ng-touched {
+  border-color: rgba(0, 204, 110, 0.5);
 }
 
 /* Error message */
 small {
   color: #ff4c4c;
   font-size: 0.85rem;
-  margin-top: -10px;
   display: block;
+  margin-top: var(--spacing-xs);
+  min-height: 1.2rem;
   animation: fadeIn 0.4s ease-in;
+  line-height: 1.4;
 }
 
 /* Button */
 button[type='submit'] {
   width: 100%;
-  padding: 12px;
-  background: #00c4cc;
-  color: #0a1f44;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--gradient-primary);
+  color: var(--color-text-on-primary);
   font-weight: 600;
   font-size: 1rem;
+  font-family: inherit;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
+  transition: all var(--transition-base);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
 }
 
-button[type='submit']:hover {
-  background: #ffffff;
-  color: #0a1f44;
-  box-shadow: 0 0 12px rgba(0, 196, 204, 0.7);
+button[type='submit']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-accent);
+  transition: left var(--transition-base);
+  z-index: 0;
 }
 
-button[disabled] {
-  background: rgba(255, 255, 255, 0.2);
+button[type='submit'] > * {
+  position: relative;
+  z-index: 1;
+}
+
+button[type='submit']:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+}
+
+button[type='submit']:hover:not(:disabled)::before {
+  left: 0;
+}
+
+button[type='submit']:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+button[type='submit']:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button[type='submit']:disabled {
+  background: rgba(255, 255, 255, 0.15);
   cursor: not-allowed;
-  color: #a6b1c0;
+  color: var(--color-neutral-500);
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+button[type='submit']:disabled::before {
+  display: none;
 }
 
 /* Subtext */
 form p {
   text-align: center;
   font-size: 0.9rem;
-  color: #c0d5e0;
-  margin-top: 1rem;
+  color: var(--color-text-tertiary);
+  margin-top: var(--spacing-md);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Link styles (if any links are added) */
+form a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+form a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
 }
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .signup-container {
+    padding: var(--spacing-lg);
+  }
+
   .signup-card {
-    padding: 30px 20px;
+    max-width: 100%;
+    padding: var(--spacing-3xl) var(--spacing-xl);
   }
 
   .signup-card h1 {
-    font-size: 1.7rem;
+    font-size: 2.1rem;
+    margin-bottom: var(--spacing-3xl);
+    padding-bottom: var(--spacing-lg);
+    letter-spacing: -0.2px;
+  }
+
+  .signup-card h1::after {
+    width: 60px;
+    height: 2.5px;
+  }
+
+  form {
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-card {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .signup-card h1 {
+    font-size: 1.85rem;
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-md);
+    letter-spacing: 0px;
+  }
+
+  .signup-card h1::after {
+    width: 50px;
+    height: 2px;
+  }
+
+  form input {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+  }
+
+  button[type='submit'] {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.95rem;
   }
 }

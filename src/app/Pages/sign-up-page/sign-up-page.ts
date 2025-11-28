@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { StrongPasswordRegx } from '../regex';
 
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   
   templateUrl: './sign-up-page.html',
   styleUrl: './sign-up-page.css',

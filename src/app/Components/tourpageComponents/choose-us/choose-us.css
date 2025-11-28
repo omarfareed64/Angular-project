@@ -62,7 +62,7 @@
   transform: translate(-50%, -50%);
   width: 130px;
   height: 130px;
-  background: linear-gradient(135deg, #00c4cc, #00a8b5);
+  background: linear-gradient(135deg, #00C4CC, #00a8b5);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -102,7 +102,7 @@
 
 .section-title {
   font-size: 2rem;
-  color: #00c4cc;
+  color: #00C4CC;
   margin-bottom: 20px;
   font-weight: 700;
 }
@@ -146,7 +146,7 @@
 }
 
 .view-more-btn {
-  background: #00c4cc;
+  background: #00C4CC;
   color: #0a1f44;
   border: none;
   padding: 14px 32px;
@@ -159,7 +159,7 @@
 
 .view-more-btn:hover {
   background: #0a1f44;
-  color: #00c4cc;
+  color: #00C4CC;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 196, 204, 0.4);
 }

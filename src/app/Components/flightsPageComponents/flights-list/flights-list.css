@@ -1,0 +1,12 @@
+/* ====== Flights List Styles ====== */
+.flights-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.list-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}

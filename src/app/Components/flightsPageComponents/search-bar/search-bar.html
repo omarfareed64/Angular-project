@@ -1,0 +1,107 @@
+<div class="search-bar-container">
+  <form class="search-form" (ngSubmit)="onSearch()">
+    <!-- Trip Type Selection -->
+    <div class="trip-type-selector">
+      <label class="radio-option">
+        <input 
+          type="radio" 
+          name="tripType" 
+          value="oneway" 
+          [(ngModel)]="searchData.tripType"
+          checked
+        />
+        <span>One Way</span>
+      </label>
+      <label class="radio-option">
+        <input 
+          type="radio" 
+          name="tripType" 
+          value="roundway" 
+          [(ngModel)]="searchData.tripType"
+        />
+        <span>Round Way</span>
+      </label>
+      <label class="radio-option">
+        <input 
+          type="radio" 
+          name="tripType" 
+          value="multicity" 
+          [(ngModel)]="searchData.tripType"
+        />
+        <span>Multi City</span>
+      </label>
+    </div>
+
+    <!-- Search Fields -->
+    <div class="search-fields">
+      <div class="field-group">
+        <label class="field-label">
+          <span class="icon">✈️</span>
+          From
+        </label>
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="New York (JFK - John F. Kennedy International)"
+          [(ngModel)]="searchData.from"
+          name="from"
+        />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">
+          <span class="icon">✈️</span>
+          To
+        </label>
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="Los Angeles (LAX - Los Angeles International)"
+          [(ngModel)]="searchData.to"
+          name="to"
+        />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">
+          <span class="icon">📅</span>
+          Journey Date
+        </label>
+        <input 
+          type="date" 
+          class="search-input"
+          [(ngModel)]="searchData.departureDate"
+          name="departureDate"
+        />
+      </div>
+
+      <div class="field-group" *ngIf="searchData.tripType === 'roundway'">
+        <label class="field-label">
+          <span class="icon">📅</span>
+          Return Date
+        </label>
+        <input 
+          type="date" 
+          class="search-input"
+          [(ngModel)]="searchData.returnDate"
+          name="returnDate"
+        />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">
+          <span class="icon">👤</span>
+          Passenger, Class
+        </label>
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="2 Passenger, Business"
+          [(ngModel)]="searchData.passengerClass"
+          name="passengerClass"
+        />
+      </div>
+    </div>
+  </form>
+</div>
+

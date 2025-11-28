@@ -32,7 +32,7 @@
 }
 
 .map-header h1 {
-  color: #00c4cc;
+  color: #00C4CC;
   font-size: 2.2rem;
   font-weight: 700;
   margin: 0;
@@ -76,15 +76,15 @@
 
 .destination-btn:hover {
   background: rgba(0, 196, 204, 0.3);
-  border-color: #00c4cc;
+  border-color: #00C4CC;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 196, 204, 0.3);
 }
 
 .destination-btn.active {
-  background: #00c4cc;
+  background: #00C4CC;
   color: #0a1f44;
-  border-color: #00c4cc;
+  border-color: #00C4CC;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(0, 196, 204, 0.5);
 }

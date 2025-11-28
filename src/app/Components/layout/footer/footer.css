@@ -1,11 +1,24 @@
 /* ====== Footer Styles ====== */
 
 .site-footer {
-  background: linear-gradient(180deg, rgb(10, 31, 67), rgb(18, 43, 92));
-  color: #ffffff;
+  background: var(--gradient-dark);
+  color: var(--color-text-primary);
   padding: 60px 20px 40px;
   font-family: 'Poppins', sans-serif;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.5;
 }
 
 .footer-container {
@@ -16,26 +29,34 @@
 
 /* Logo */
 .footer-logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  letter-spacing: 1px;
   display: inline-block;
   margin-bottom: 20px;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .footer-logo:hover {
-  color: #00c4cc;
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 196, 204, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.footer-logo:hover .footer-logo-img {
+  filter: drop-shadow(0 6px 16px rgba(0, 196, 204, 0.5));
 }
 
 /* Description */
 .footer-description {
   max-width: 700px;
   margin: 0 auto 30px;
-  line-height: 1.6;
-  color: #d1d1d1;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
 }
 
@@ -51,25 +72,42 @@
 }
 
 .footer-nav a {
-  color: #00c4cc;
+  color: var(--color-primary);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.footer-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: width 0.3s ease;
 }
 
 .footer-nav a:hover {
-  border-color: #00c4cc;
-  color:  #ffffff;
+  color: var(--color-accent);
+}
+
+.footer-nav a:hover::after {
+  width: 100%;
 }
 
 /* Copyright */
 .footer-copy {
   display: block;
   font-size: 0.85rem;
-  color: #aaa;
-  margin-top: 10px;
+  color: var(--color-text-tertiary);
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 196, 204, 0.2);
 }
 
 /* ====== Responsive Design ====== */
@@ -78,8 +116,8 @@
     padding: 40px 15px 30px;
   }
 
-  .footer-logo {
-    font-size: 1.5rem;
+  .footer-logo-img {
+    height: 50px;
   }
 
   .footer-description {

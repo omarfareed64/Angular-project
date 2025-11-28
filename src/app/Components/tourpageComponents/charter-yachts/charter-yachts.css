@@ -19,7 +19,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0,196,204,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0, 196, 204,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
   opacity: 0.3;
 }
 
@@ -79,24 +79,24 @@
 }
 
 .charter-btn.primary {
-  background: #00c4cc;
+  background: #00C4CC;
   color: #0a1f44;
 }
 
 .charter-btn.primary:hover {
   background: #0a1f44;
-  color: #00c4cc;
+  color: #00C4CC;
   transform: translateY(-2px);
 }
 
 .charter-btn.secondary {
   background: #0a1f44;
-  color: #00c4cc;
-  border: 2px solid #00c4cc;
+  color: #00C4CC;
+  border: 2px solid #00C4CC;
 }
 
 .charter-btn.secondary:hover {
-  background: #00c4cc;
+  background: #00C4CC;
   color: #0a1f44;
   transform: translateY(-2px);
 }

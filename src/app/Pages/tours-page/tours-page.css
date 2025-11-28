@@ -1,11 +1,11 @@
-/* ====== Homepage Styles ====== */
+/* ====== Tours Page Styles ====== */
 :host {
   display: block;
   font-family: 'Poppins', sans-serif;
-  color: #fff;
+  color: var(--color-text-primary);
   overflow-x: hidden;
   min-height: 100vh;
 }
 .home-page-exclusive-tours{
-  background: linear-gradient(180deg, #0a1f44, #122b5c);
+  background: var(--gradient-dark);
 }

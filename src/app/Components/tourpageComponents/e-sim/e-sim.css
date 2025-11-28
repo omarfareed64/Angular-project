@@ -42,7 +42,7 @@
 
 .section-title {
   font-size: 2rem;
-  color: #00c4cc;
+  color: #00C4CC;
   margin-bottom: 30px;
   font-weight: 700;
 }
@@ -65,7 +65,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #00c4cc;
+  color: #00C4CC;
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -79,7 +79,7 @@
 }
 
 .esim-search-box h3 {
-  color: #00c4cc;
+  color: #00C4CC;
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -112,12 +112,12 @@
 
 .esim-search-form input:focus {
   outline: none;
-  border-color: #00c4cc;
+  border-color: #00C4CC;
   background: rgba(255, 255, 255, 0.15);
 }
 
 .search-btn {
-  background: #00c4cc;
+  background: #00C4CC;
   color: #0a1f44;
   border: none;
   padding: 12px 24px;

@@ -1,0 +1,117 @@
+<div class="filters-panel">
+  <h3 class="filters-title">Filters</h3>
+  
+  <!-- Flight Price -->
+  <div class="filter-group">
+    <label class="filter-label">Flight Price</label>
+    <div class="price-range">
+      <input type="range" min="0" max="10000" value="5000" class="price-slider" />
+      <div class="price-values">
+        <span>Min: $0</span>
+        <span>Max: $10,000</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flight Class -->
+  <div class="filter-group">
+    <label class="filter-label">Flight Class</label>
+    <div class="checkbox-group">
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Business</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Economy</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>First Class</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Flight Time -->
+  <div class="filter-group">
+    <label class="filter-label">Flight Time</label>
+    <div class="checkbox-group">
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Morning (6AM - 12PM)</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Afternoon (12PM - 6PM)</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Evening (6PM - 12AM)</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Night (12AM - 6AM)</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Airlines -->
+  <div class="filter-group">
+    <label class="filter-label">Airlines</label>
+    <div class="checkbox-group">
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>American Airline</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Delta Airline</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Qatar Airline</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Fly Emirates</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Number of Stops -->
+  <div class="filter-group">
+    <label class="filter-label">Number of Stops</label>
+    <div class="checkbox-group">
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>Non Stop</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>1 Stop</span>
+      </label>
+      <label class="checkbox-option">
+        <input type="checkbox" />
+        <span>2+ Stops</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Duration Of Stops -->
+  <div class="filter-group">
+    <label class="filter-label">Duration Of Stops</label>
+    <div class="price-range">
+      <input type="range" min="45" max="150" value="90" class="price-slider" />
+      <div class="price-values">
+        <span>45m</span>
+        <span>2h 30m</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Actions -->
+  <div class="filter-actions">
+    <button class="btn-apply">Apply Filters</button>
+    <button class="btn-clear">Clear All</button>
+  </div>
+</div>

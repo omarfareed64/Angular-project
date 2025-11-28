@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { Map, MapStyle, Marker, config } from '@maptiler/sdk';
+import { isPlatformBrowser } from '@angular/common';
 
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 
@@ -20,9 +21,14 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   map: Map | undefined;
   markers: Marker[] = [];
   selectedDestination: string = '';
+  private isBrowser: boolean = false;
 
   @ViewChild('map')
   private mapContainer!: ElementRef<HTMLElement>;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   destinations: Destination[] = [
     { name: 'Tokyo, Japan', lng: 139.753, lat: 35.6844, zoom: 12 },
@@ -36,15 +42,19 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   ];
 
   ngOnInit(): void {
+    if (!this.isBrowser) return;
+
     config.apiKey = 'BLphNzBZFTTofo0JmKVZ';
   }
 
   ngAfterViewInit() {
+    if (!this.isBrowser) return;
+
     const initialState = { lng: 139.753, lat: 35.6844, zoom: 12 };
 
     this.map = new Map({
       container: this.mapContainer.nativeElement,
-      style: MapStyle.STREETS,
+      style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=BLphNzBZFTTofo0JmKVZ',
       center: [initialState.lng, initialState.lat],
       zoom: initialState.zoom
     });
@@ -64,7 +74,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Add markers for all destinations
     this.destinations.forEach(dest => {
-      const marker = new Marker({ color: '#00c4cc' })
+      const marker = new Marker({ color: '#00C4CC' })
         .setLngLat([dest.lng, dest.lat])
         .addTo(this.map!);
       this.markers.push(marker);
@@ -75,7 +85,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.map) return;
 
     this.selectedDestination = destination.name;
-    
+
     // Animate map to destination
     this.map.flyTo({
       center: [destination.lng, destination.lat],

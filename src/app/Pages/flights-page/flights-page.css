@@ -1,0 +1,114 @@
+/* ====== Flights Page Styles ====== */
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: var(--color-neutral-900);
+}
+
+.flights-page {
+  padding-top: 0;
+}
+
+/* Search Section */
+.flights-search-section {
+  background: var(--gradient-dark);
+  padding: var(--spacing-4xl) 0;
+  border-bottom: 1px solid rgba(0, 196, 204, 0.2);
+}
+
+/* Content Section */
+.flights-content-section {
+  background: var(--color-neutral-100);
+  padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+  min-height: calc(100vh - 200px);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+/* Main Content Layout */
+.flights-content {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--spacing-2xl);
+  align-items: start;
+}
+
+/* Results Header */
+.results-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.results-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-neutral-700);
+  margin: 0;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+  position: sticky;
+  top: 100px;
+  background: var(--color-neutral-50);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* Results Main */
+.results-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .flights-content {
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 900px) {
+  .flights-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .filters-sidebar {
+    position: relative;
+    top: 0;
+    max-height: none;
+    order: 2;
+  }
+  
+  .results-main {
+    order: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .flights-search-section {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .flights-content-section {
+    padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+  }
+  
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .results-title {
+    font-size: 1.25rem;
+  }
+}

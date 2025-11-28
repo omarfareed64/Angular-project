@@ -1,0 +1,27 @@
+<div class="flights-page">
+	<section class="flights-search-section">
+		<div class="container">
+			<app-search-bar></app-search-bar>
+		</div>
+	</section>
+
+	<section class="flights-content-section">
+		<div class="container">
+			<div class="flights-content">
+				<aside class="filters-sidebar">
+					<app-flights-filters></app-flights-filters>
+				</aside>
+
+				<main class="results-main">
+					<div class="results-header">
+						<h2 class="results-title">{{ totalFlights() }} Flights Found</h2>
+					</div>
+
+					<app-flights-list></app-flights-list>
+
+					<app-pagination></app-pagination>
+				</main>
+			</div>
+		</div>
+	</section>
+</div>

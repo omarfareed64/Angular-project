@@ -9,7 +9,7 @@
 
 /* Section Title */
 .section-header h1 {
-  color: #00c4cc;
+  color: #00C4CC;
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 50px;
@@ -27,7 +27,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, transparent, #00c4cc, transparent);
+  background: linear-gradient(90deg, transparent, #00C4CC, transparent);
   border-radius: 2px;
 }
 
@@ -130,7 +130,7 @@
 
 .city-info p {
   font-size: 0.95rem;
-  color: #00c4cc;
+  color: #00C4CC;
   margin-top: 4px;
   font-weight: 600;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);

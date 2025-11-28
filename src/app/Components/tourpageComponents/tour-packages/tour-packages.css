@@ -1,7 +1,7 @@
 /* ====== Tour Packages Section ====== */
 .tour-packages-section {
-  background: #ffffff;
-  padding: 100px 20px;
+  background: var(--color-neutral-50);
+  padding: var(--spacing-4xl) var(--spacing-xl);
   position: relative;
 }
 
@@ -12,44 +12,44 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #00c4cc, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--spacing-xl);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: var(--spacing-4xl);
   animation: fadeIn 0.8s ease-out;
 }
 
 .section-tag {
   display: inline-block;
-  background: #00c4cc;
-  color: #0a1f44;
-  padding: 8px 20px;
+  background: var(--gradient-primary);
+  color: var(--color-text-on-primary);
+  padding: var(--spacing-sm) var(--spacing-xl);
   border-radius: 25px;
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-xl);
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0, 196, 204, 0.3);
-  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base);
 }
 
 .section-tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 196, 204, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .section-title {
   font-size: 2.8rem;
   font-weight: 700;
-  color: #00c4cc;
+  color: var(--color-primary);
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.5px;
@@ -65,24 +65,24 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, transparent, #00c4cc, transparent);
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
   border-radius: 2px;
 }
 
 .tour-packages-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
+  gap: var(--spacing-4xl);
 }
 
 .tour-package-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   aspect-ratio: 1.2;
   cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition-slow) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--shadow-lg);
   animation: fadeIn 0.6s ease-out;
   animation-fill-mode: both;
   border: 3px solid transparent;
@@ -95,7 +95,7 @@
 
 .tour-package-card:hover {
   transform: translateY(-15px) scale(1.03);
-  box-shadow: 0 25px 60px rgba(0, 196, 204, 0.35);
+  box-shadow: var(--shadow-xl);
   border-color: rgba(0, 196, 204, 0.3);
 }
 
@@ -105,8 +105,8 @@
   background-size: cover;
   background-position: center;
   filter: brightness(0.85);
-  transition: all 0.4s ease;
-  background-color: #e8e8e8;
+  transition: all var(--transition-base);
+  background-color: var(--color-neutral-200);
   background-image: none;
 }
 
@@ -120,24 +120,24 @@
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  background: #00c4cc;
-  color: #0a1f44;
+  background: var(--gradient-primary);
+  color: var(--color-text-on-primary);
   border: none;
-  padding: 14px 35px;
+  padding: var(--spacing-lg) var(--spacing-4xl);
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 196, 204, 0.4);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
   letter-spacing: 0.5px;
 }
 
 .tour-package-card .book-btn:hover {
-  background: #ffffff;
+  background: var(--color-neutral-50);
   transform: translateX(-50%) translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 196, 204, 0.5);
-  padding: 14px 40px;
+  box-shadow: var(--shadow-primary);
+  padding: var(--spacing-lg) var(--spacing-4xl);
 }
 
 @keyframes fadeIn {
