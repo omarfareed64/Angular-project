@@ -4,9 +4,11 @@
       <div class="airline-logo">{{ getAirlineInitials(flight?.airline) }}</div>
       <div class="airline-name">{{ flight?.airline }}</div>
     </div>
-    <div class="flight-status" *ngIf="flight?.refundable">
+    @if(flight?.refundable){
+    <div class="flight-status" >
       <span class="status-badge">{{ flight?.refundable }}</span>
     </div>
+  }
   </div>
 
   <div class="flight-route">
@@ -14,7 +16,7 @@
       <div class="time">{{ flight?.departTime }}</div>
       <div class="airport-code">{{ flight?.from }}</div>
     </div>
-    
+
     <div class="route-info">
       <div class="stops-indicator">
         <span class="stops-text">{{ flight?.stops }}</span>
@@ -24,7 +26,7 @@
       </div>
       <div class="duration">{{ flight?.duration }}</div>
     </div>
-    
+
     <div class="arrival">
       <div class="time">{{ flight?.arriveTime }}</div>
       <div class="airport-code">{{ flight?.to }}</div>
@@ -33,12 +35,14 @@
 
   <div class="flight-footer">
     <div class="price-section">
-      <div class="price-old" *ngIf="flight?.oldPrice">
+      @if(flight?.oldPrice){
+      <div class="price-old" >
         <span class="strikethrough">${{ flight?.oldPrice }}</span>
       </div>
+    }
       <div class="price-current">${{ formatPrice(flight?.price) }}</div>
     </div>
-    
+
     <div class="actions">
       <button class="btn-book">Book Now</button>
       <a href="#" class="flight-details">Flight Details</a>
